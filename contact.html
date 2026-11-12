@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · Origamisabelle</title>
+<meta name="description" content="Contacter Isabelle, d'Origamisabelle : devis, atelier, commande ou simple question.">
+<meta name="theme-color" content="#2A1B33">
+<link rel="icon" href="img/logo.webp">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Origamisabelle">
+<meta property="og:title" content="Contact · Origamisabelle">
+<meta property="og:description" content="Contacter Isabelle, d'Origamisabelle : devis, atelier, commande ou simple question.">
+<meta property="og:image" content="img/fleurs-02.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+<meta name="editeur-publication" content="rsale1107/origamisabelle"></head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Origamisabelle, accueil"><img src="img/logo-bandeau.webp" alt="Origamisabelle" width="242" height="70"></a>
+    <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+    <nav class="menu" id="menu" aria-label="Menu principal">
+      <a class="link" href="index.html">Accueil</a><a class="link" href="galerie.html">Galerie</a><a class="link" href="ateliers.html">Ateliers</a><a class="link" href="boutique.html">Boutique</a><a class="link" href="contact.html" aria-current="page">Contact</a>
+      <a class="btn btn-ink" href="mailto:origamisabelle@gmail.com?subject=Demande%20de%20devis">Demander un devis</a>
+    </nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="phero">
+  <div class="folds" aria-hidden="true"><span class="o o1"><svg viewBox="0 0 200 140"><polygon points="100,72 40,8 86,92" fill="#E77E98"></polygon><polygon points="100,72 166,4 116,92" fill="#F49CB0"></polygon><polygon points="100,72 166,4 132,60" fill="#fff" opacity=".25"></polygon><polygon points="60,98 10,46 74,102" fill="#E77E98"></polygon><polygon points="140,98 186,40 128,104" fill="#F49CB0"></polygon><polygon points="186,40 199,49 187,53" fill="#E77E98"></polygon><polygon points="60,98 100,72 140,98 100,124" fill="#F49CB0"></polygon><polygon points="60,98 100,98 100,124" fill="#D9637F"></polygon></svg></span><span class="o o2"><svg viewBox="0 0 200 140"><polygon points="20,80 180,80 150,120 50,120" fill="#5BB8AB"></polygon><polygon points="20,80 100,80 50,120" fill="#7FD3C6"></polygon><polygon points="100,80 100,10 60,80" fill="#7FD3C6"></polygon><polygon points="100,80 100,10 140,80" fill="#4AA699"></polygon><polygon points="100,10 140,80 120,80" fill="#fff" opacity=".18"></polygon></svg></span><span class="o o3"><svg viewBox="0 0 200 140"><polygon points="100,70 20,20 40,80" fill="#FFC95C"></polygon><polygon points="100,70 40,80 30,120" fill="#E9A93A"></polygon><polygon points="100,70 180,20 160,80" fill="#FFD77F"></polygon><polygon points="100,70 160,80 170,120" fill="#E9A93A"></polygon><polygon points="96,40 104,40 104,110 96,110" fill="#8A5A34"></polygon></svg></span><span class="o o4"><svg viewBox="0 0 200 180"><polygon points="100,170 20,80 60,30 100,70" fill="#F49CB0"></polygon><polygon points="100,170 180,80 140,30 100,70" fill="#E77E98"></polygon><polygon points="20,80 60,30 40,40" fill="#fff" opacity=".3"></polygon><polygon points="100,70 60,30 80,30" fill="#fff" opacity=".2"></polygon></svg></span></div>
+  <div class="wrap phero-in">
+    <p class="crumb"><a href="index.html">Accueil</a> · Contact</p>
+    <h1>Écrire à <span class="hl">Isabelle</span></h1>
+    <p class="sub">Un devis, un atelier, une commande ou une simple question&nbsp;: Isabelle vous répond par e-mail.</p>
+  </div>
+</section>
+<section class="wrap sec contact">
+  <form class="form" id="contactForm" novalidate="">
+    <h2>Votre message</h2>
+    <label for="prenom">Prénom<input id="prenom" name="prenom" autocomplete="given-name" required=""></label>
+    <label for="nom">Nom<input id="nom" name="nom" autocomplete="family-name" required=""></label>
+    <label class="full" for="email">E-mail<input id="email" name="email" type="email" autocomplete="email" required=""></label>
+    <label class="full" for="objet">Votre demande<select id="objet" name="objet"><option>Demande de devis</option><option>Stage ou atelier</option><option>Commande personnalisée</option><option>Exposition ou partenariat</option><option>Autre question</option></select></label>
+    <label class="full" for="message">Message<textarea id="message" name="message" rows="6" required=""></textarea></label>
+    <div class="full form-end"><button class="btn btn-ink" type="submit">Préparer mon message</button><span id="err" class="err" hidden="">Merci de remplir tous les champs, avec un e-mail valide.</span></div>
+    <p class="full small">Le bouton ouvre votre messagerie avec le message prêt à envoyer à origamisabelle@gmail.com.</p>
+  </form>
+  <div class="sent" id="sent" hidden=""><b>Votre message est prêt.</b><p>Votre messagerie s’est ouverte avec le message rédigé&nbsp;: il ne reste qu’à l’envoyer. Merci&nbsp;!</p></div>
+  <aside class="contact-side">
+    <div class="cbox"><h3>E-mail</h3><a href="mailto:origamisabelle@gmail.com">origamisabelle@gmail.com</a><button type="button" class="btn btn-line btn-sm" data-copy="origamisabelle@gmail.com">Copier l’adresse</button></div>
+    <div class="cbox"><h3>Secteur</h3><p>La Verrière et 15 km alentour, Yvelines (78)</p></div>
+    <div class="cbox"><h3>Me suivre</h3><p class="social-row"><a href="https://www.instagram.com/isagamicreation" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/origamisabelle" target="_blank" rel="noopener">Facebook</a><a href="https://fr.pinterest.com/origamisabelle78/" target="_blank" rel="noopener">Pinterest</a><a href="https://www.etsy.com/shop/Isagamicreation" target="_blank" rel="noopener">Etsy</a></p></div>
+  </aside>
+</section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand"><svg class="crane" viewBox="0 0 120 90" aria-hidden="true"><polygon points="8,62 46,50 60,70" fill="var(--c1)"></polygon><polygon points="46,50 60,70 70,48" fill="var(--c2)"></polygon><polygon points="70,48 60,70 98,24" fill="var(--c3)"></polygon><polygon points="46,50 70,48 52,8" fill="var(--c4)"></polygon><polygon points="70,48 52,8 64,46" fill="var(--c5)"></polygon><polygon points="98,24 112,30 104,34" fill="var(--c3)"></polygon><polygon points="8,62 2,44 20,58" fill="var(--c2)"></polygon></svg><div><b>Origamisabelle</b><div class="foot-text"><p class="ft-l1">L’élégance et la poésie naissent d’un simple pli.</p><p class="ft-l2">25 ans de patience et de précision&nbsp;!</p><p class="ft-l3">Je transforme le papier en une œuvre vivante, où chaque pliage raconte une histoire de rigueur et de poésie géométrique.</p><p class="ft-l1">L’élégance et la poésie naissent d’un simple pli.</p></div></div></div>
+    <nav class="foot-links" aria-label="Liens utiles">
+      <a href="galerie.html">Galerie</a><a href="ateliers.html">Ateliers</a><a href="boutique.html">Boutique</a><a href="contact.html">Contact</a><a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+    <div class="socials">
+      <a href="https://www.instagram.com/isagamicreation" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/origamisabelle" target="_blank" rel="noopener">Facebook</a><a href="https://fr.pinterest.com/origamisabelle78/" target="_blank" rel="noopener">Pinterest</a><a href="https://www.etsy.com/shop/Isagamicreation" target="_blank" rel="noopener">Etsy</a>
+    </div>
+    <span class="copy">© 2026 Origamisabelle · <a href="mailto:origamisabelle@gmail.com">origamisabelle@gmail.com</a></span>
+  </div>
+</footer>
+<div class="lightbox" id="lightbox" hidden="" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button class="lb-close" type="button" aria-label="Fermer">×</button>
+  <button class="lb-prev" type="button" aria-label="Photo précédente">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-next" type="button" aria-label="Photo suivante">›</button>
+</div>
+<script src="site.js"></script>
+
+
+</body></html>
