@@ -10,10 +10,10 @@
 <meta property="og:site_name" content="Origamisabelle">
 <meta property="og:title" content="Contact · Origamisabelle">
 <meta property="og:description" content="Contacter Isabelle, d'Origamisabelle : devis, atelier, commande ou simple question.">
-<meta property="og:image" content="https://www.origamisabelle.fr/img/fleurs-02.jpg">
+<meta property="og:image" content="img/fleurs-02.jpg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="style.css">
-<meta name="editeur-publication" content="rsale1107/origamisabelle"><meta name="editeur-url" content="https://www.origamisabelle.fr"><meta property="og:url" content="https://www.origamisabelle.fr/contact.html"><meta name="twitter:card" content="summary_large_image"></head>
+<meta name="editeur-publication" content="rsale1107/origamisabelle"></head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header>
@@ -24,7 +24,7 @@
     </button>
     <nav class="menu" id="menu" aria-label="Menu principal">
       <a class="link" href="index.html">Accueil</a><a class="link" href="galerie.html">Galerie</a><a class="link" href="ateliers.html">Ateliers</a><a class="link" href="boutique.html">Boutique</a><a class="link" href="contact.html" aria-current="page">Contact</a>
-      <a class="btn btn-ink" href="mailto:origamisabelle@gmail.com?subject=Demande%20de%20devis">Demander un devis</a>
+      <a class="btn btn-ink" href="contact.html#devis">Demander un devis</a>
     </nav>
   </div>
 </header>
@@ -39,6 +39,7 @@
 </section>
 <section class="wrap sec contact">
   <form class="form" id="contactForm" novalidate="">
+    <span id="devis"></span><span id="atelier"></span>
     <h2>Votre message</h2>
     <label for="prenom">Prénom<input id="prenom" name="prenom" autocomplete="given-name" required=""></label>
     <label for="nom">Nom<input id="nom" name="nom" autocomplete="family-name" required=""></label>
@@ -48,7 +49,7 @@
     <div class="full form-end"><button class="btn btn-ink" type="submit">Préparer mon message</button><span id="err" class="err" hidden="">Merci de remplir tous les champs, avec un e-mail valide.</span></div>
     <p class="full small">Le bouton ouvre votre messagerie avec le message prêt à envoyer à origamisabelle@gmail.com.</p>
   </form>
-  <div class="sent" id="sent" hidden=""><b>Votre message est prêt.</b><p>Votre messagerie s’est ouverte avec le message rédigé&nbsp;: il ne reste qu’à l’envoyer. Merci&nbsp;!</p></div>
+  <div class="sent" id="sent" hidden=""><b>Votre message est prêt.</b><p>Votre messagerie s’ouvre avec le message rédigé&nbsp;: il ne reste qu’à l’envoyer. Merci&nbsp;!</p><p class="alt">Rien ne s’est ouvert&nbsp;? Envoyez-le avec <a id="viaGmail" href="#" target="_blank" rel="noopener">Gmail</a> ou <a id="viaOutlook" href="#" target="_blank" rel="noopener">Outlook</a>, ou <button type="button" class="linkbtn" id="copyMsg">copiez le message</button> et collez-le dans votre messagerie, à l’adresse <b>origamisabelle@gmail.com</b>.</p></div>
   <aside class="contact-side">
     <div class="cbox"><h3>E-mail</h3><a href="mailto:origamisabelle@gmail.com">origamisabelle@gmail.com</a><button type="button" class="btn btn-line btn-sm" data-copy="origamisabelle@gmail.com">Copier l’adresse</button></div>
     <div class="cbox"><h3>Secteur</h3><p>La Verrière et 15 km alentour, Yvelines (78)</p></div>

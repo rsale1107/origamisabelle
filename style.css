@@ -299,3 +299,7 @@ footer{background:var(--plum);color:#E9DDEA;margin-top:20px}
 .foot-text .ft-l2{font-weight:700;color:var(--sun)}
 .intro-txt .lead-strong{font-family:var(--f-display);font-weight:700;font-size:1.2rem;color:var(--kraft)}
 .hero .sign{font-style:italic}
+.sent .alt{font-size:.92rem;margin-top:6px}
+.sent .alt a{font-weight:700}
+.linkbtn{all:unset;cursor:pointer;color:var(--teal);font-weight:700;text-decoration:underline}
+#devis,#atelier{display:block;position:relative;top:-110px}

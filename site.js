@@ -85,8 +85,26 @@
       err.hidden = true;
       var objet = document.getElementById('objet').value;
       var corps = val('message') + '\n\n' + val('prenom') + ' ' + val('nom') + '\n' + val('email');
+      var subj = objet + ' – site Origamisabelle';
+      var g = document.getElementById('viaGmail'), o = document.getElementById('viaOutlook'), cm = document.getElementById('copyMsg');
+      if (g) g.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(EMAIL) + '&su=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(corps);
+      if (o) o.href = 'https://outlook.live.com/mail/0/deeplink/compose?to=' + encodeURIComponent(EMAIL) + '&subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(corps);
+      if (cm) cm.onclick = function () { var t = subj + '\n\n' + corps; if (navigator.clipboard) navigator.clipboard.writeText(t).then(function () { cm.textContent = 'message copié'; }, function () {}); };
       window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(objet + ' – site Origamisabelle') + '&body=' + encodeURIComponent(corps);
       f.hidden = true; sent.hidden = false;
     });
+  }
+
+  /* ---- arrivée depuis « Demander un devis » ou « atelier » : choisir l'objet et montrer le formulaire ---- */
+  var cf = document.getElementById('contactForm');
+  if (cf) {
+    var pick = function () {
+      var h = location.hash.replace('#', ''), sel = document.getElementById('objet');
+      if (!sel || (h !== 'devis' && h !== 'atelier')) return;
+      [].forEach.call(sel.options, function (o, i) { if (o.text.toLowerCase().indexOf(h) >= 0) sel.selectedIndex = i; });
+      cf.scrollIntoView({block: 'start'});
+      var first = document.getElementById('prenom'); if (first) setTimeout(function () { first.focus({preventScroll: true}); }, 300);
+    };
+    pick(); window.addEventListener('hashchange', pick);
   }
 })();
