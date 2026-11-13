@@ -1,4 +1,3 @@
-/* Origamisabelle — scripts communs à toutes les pages — v1.9 (13 nov. 2026) */
 (function () {
   'use strict';
   var EMAIL = 'origamisabelle@gmail.com';
@@ -74,44 +73,25 @@
     });
   });
 
-  /* ---- formulaire de contact : envoi direct à EMAIL (service gratuit FormSubmit, sans compte).
-     Au tout premier message, FormSubmit envoie un e-mail d'activation à EMAIL : cliquer une fois sur
-     le lien reçu. La messagerie du visiteur ne s'ouvre jamais. L'envoi ne fonctionne que sur le site
-     publié (pas dans l'aperçu de l'éditeur). ---- */
+  /* ---- formulaire : prépare l'e-mail dans la messagerie du visiteur ---- */
   var f = document.getElementById('contactForm');
   if (f) {
-    var sent = document.getElementById('sent'), err = document.getElementById('err'), btn = f.querySelector('button[type="submit"]');
-    var val = function (id) { return document.getElementById(id).value.trim(); };
-    var showErr = function (t) { err.textContent = t; err.hidden = false; };
-    var enLigne = /^https?:$/.test(location.protocol) && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
-    var echec = function () {
-      err.innerHTML = "Le message n'a pas pu être envoyé. Écrivez directement à <a href=\"mailto:" + EMAIL + "\" style=\"color:inherit\">" + EMAIL + '</a>.';
-      err.hidden = false;
-    };
+    var sent = document.getElementById('sent'), err = document.getElementById('err');
     f.addEventListener('submit', function (e) {
       e.preventDefault();
+      var val = function (id) { return document.getElementById(id).value.trim(); };
       var ok = ['prenom', 'nom', 'email', 'message'].every(function (id) { return val(id) !== ''; });
-      if (!ok || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email'))) { showErr('Merci de remplir tous les champs, avec un e-mail valide.'); return; }
+      if (!ok || val('email').indexOf('@') < 1) { err.hidden = false; return; }
       err.hidden = true;
       var objet = document.getElementById('objet').value;
-      if (!enLigne) { showErr("Aperçu : l'envoi ne fonctionne que sur le site publié. Aucun message n'a été envoyé."); return; }
-      if (!window.fetch) { echec(); return; }
-      btn.disabled = true; var lib = btn.textContent; btn.textContent = 'Envoi en cours…';
-      fetch('https://formsubmit.co/ajax/' + encodeURIComponent(EMAIL), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: objet + ' – site Origamisabelle',
-          _replyto: val('email'), _template: 'table', _captcha: 'false',
-          'Prénom': val('prenom'), 'Nom': val('nom'), 'E-mail': val('email'), 'Demande': objet, 'Message': val('message')
-        })
-      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return r.ok && String(j.success) !== 'false'; }); })
-        .then(function (envoye) {
-          btn.disabled = false; btn.textContent = lib;
-          if (envoye) { f.hidden = true; sent.hidden = false; sent.setAttribute('tabindex', '-1'); sent.focus(); }
-          else echec();
-        })
-        .catch(function () { btn.disabled = false; btn.textContent = lib; echec(); });
+      var corps = val('message') + '\n\n' + val('prenom') + ' ' + val('nom') + '\n' + val('email');
+      var subj = objet + ' – site Origamisabelle';
+      var g = document.getElementById('viaGmail'), o = document.getElementById('viaOutlook'), cm = document.getElementById('copyMsg');
+      if (g) g.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(EMAIL) + '&su=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(corps);
+      if (o) o.href = 'https://outlook.live.com/mail/0/deeplink/compose?to=' + encodeURIComponent(EMAIL) + '&subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(corps);
+      if (cm) cm.onclick = function () { var t = subj + '\n\n' + corps; if (navigator.clipboard) navigator.clipboard.writeText(t).then(function () { cm.textContent = 'message copié'; }, function () {}); };
+      window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(objet + ' – site Origamisabelle') + '&body=' + encodeURIComponent(corps);
+      f.hidden = true; sent.hidden = false;
     });
   }
 
